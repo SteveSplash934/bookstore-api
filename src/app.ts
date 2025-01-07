@@ -8,10 +8,10 @@ import userRoutes from './routes/userRoutes.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import bookRoutes from './routes/bookRoutes.js';
-import appRoutes from './routes/appRoutes.js';
+import defaultAppUIRoutes from './routes/defaultAppUIRoutes.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename : string = fileURLToPath(import.meta.url);
+const __dirname : string = path.dirname(__filename);
 
 
 
@@ -28,8 +28,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-const HOSTNAME = process.env.HOSTNAME || 'localhost';
-const PORT = parseInt(process.env.PORT || '3000');
+const HOSTNAME : string = process.env.HOSTNAME || 'localhost';
+const PORT : number = parseInt(process.env.PORT || '3000');
 
 // Logger middleware
 app.use((req, res, next) => {
@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/user', userRoutes);
 app.use('/api/v1', bookRoutes);
-app.use('/app', appRoutes);
+app.use('/app', defaultAppUIRoutes);
 
 app.get('/', (req, res) => {
   res.redirect('/app');
