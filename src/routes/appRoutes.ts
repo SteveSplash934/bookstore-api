@@ -15,7 +15,6 @@ router.get('/contact-us', (req, res) => {
 });
 
 router.post('/contact-us', (req, res) => {
-    // res.render('contact-us');
     res.send('Thank you for contacting us');
 });
 
