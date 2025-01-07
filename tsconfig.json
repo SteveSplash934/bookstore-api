@@ -1,27 +1,14 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ES2022",
-    "outDir": "dist", 
-    "rootDir": "src", 
-    "esModuleInterop": true, 
-    "skipLibCheck": true, 
-    "strict": true, 
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    "lib": [
-      "esnext", 
-      "dom"
-    ]
+    "module": "ESNext", // Use ESNext module system
+    "target": "ESNext", // Set target to ESNext to enable features like import.meta
+    "moduleResolution": "node", // Enable Node.js style module resolution
+    "esModuleInterop": true, // Enable interop between CommonJS and ES Modules
+    "outDir": "./dist", // Set output directory
+    "strict": true // Enable strict type checking
   },
   "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules", 
-    "dist"
+    "src/**/*.ts", // Include all TypeScript files in the src folder
+    "views/**/*.*"
   ]
 }
