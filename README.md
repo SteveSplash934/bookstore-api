@@ -25,16 +25,17 @@ A RESTful API for managing books, built with **TypeScript, Node.js, Express.js, 
 │   ├── 📂 middlewares        # Authentication, error handling
 │   ├── 📂 services           # Reusable business logic (e.g., bookService.ts)
 │   ├── 📂 utils              # Utility functions/helpers
+│   ├── .env                  # Environment variables
 │   └── index.ts              # Entry point for the API
 ├── 📂 tests                  # Unit and integration tests
-├── .env                      # Environment variables
 ├── tsconfig.json             # TypeScript config file
 ├── package.json              # Project dependencies
+├── nodemon.json              # Nodemon config file
 ├── .gitignore                # Git ignored files
 ├── README.md                 # Project documentation
 ```
-config controllers models routes middlewares services utils
----
+
+## config controllers models routes middlewares services utils
 
 ## 🚀 **Getting Started**
 
@@ -53,9 +54,19 @@ npm install
 
 ### **3. Setup Environment Variables (`.env` file)**
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the src directory:
 
 ```plaintext
+HOSTNAME=localhost
+PORT=3000
+DB_MANAGER=mongodb # Options: mysql, sqlite
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=12345
+DB_NAME=bookstoreapi
+
+# MongoDB (DEFAULT)
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/bookstore
 JWT_SECRET=your_jwt_secret_key
@@ -65,11 +76,10 @@ JWT_SECRET=your_jwt_secret_key
 
 - **Development Mode:**
   ```bash
-  npm run dev
+  nodemon
   ```
 - **Production Mode:**
   ```bash
-  npm run build
   npm start
   ```
 
@@ -77,10 +87,11 @@ JWT_SECRET=your_jwt_secret_key
 
 ## 📡 **API Endpoints**
 
-### **Auth Routes**
+### **User Routes**
 
-- `POST /api/auth/register` – Register a new user.
-- `POST /api/auth/login` – Log in and receive a token.
+- `GET /user` - Default landing page for user (Protected)
+- `POST /user/register` – Register a new user.
+- `POST /user/login` – Log in and receive a token.
 
 ### **Book Routes (Protected)**
 
